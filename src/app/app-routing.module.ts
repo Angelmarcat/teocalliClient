@@ -15,7 +15,9 @@ const routes: Routes = [
   { path: 'pay', loadChildren: () => import('./screen/pay/pay.module').then(m => m.PayModule) },
   { path: 'login', loadChildren: () => import('./screen/login/login.module').then(m => m.LoginModule) },
   { path: 'validate', loadChildren: () => import('./screen/validate/validate.module').then(m => m.ValidateModule) },
-  { path: 'register', loadChildren: () => import('./screen/register/register.module').then(m => m.RegisterModule) }];
+  { path: 'register', loadChildren: () => import('./screen/register/register.module').then(m => m.RegisterModule) },
+  { path: 'updateProfile', loadChildren: () => import('./screen/update-profile/update-profile.module').then(m => m.UpdateProfileModule) },
+  { path: 'lodgingDetail', loadChildren: () => import('./screen/lodging-detail/lodging-detail.module').then(m => m.LodgingDetailModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
