@@ -14,6 +14,7 @@ form {
   border: none;
   border-radius: 45px;
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .btn-primary:hover {
