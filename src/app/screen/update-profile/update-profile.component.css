@@ -1,0 +1,29 @@
+.update-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form {
+  width: 500px;
+}
+
+.btn-primary {
+  background-color: #ff4d00;
+  outline: none;
+  border: none;
+  border-radius: 45px;
+  margin-top: 30px;
+}
+
+.btn-primary:hover {
+  background-color: none;
+}
+
+.form-group {
+  margin-top: 30px;
+}
+
+a {
+  color: white;
+}
