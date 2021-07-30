@@ -1,33 +1,34 @@
 <div class="login-form">
   <h1>Crear una nueva cuenta</h1>
-  <form>
+  <form [formGroup]="user" (ngSubmit)="registrar($event)">
     <div class="form-group">
       <label>Nombre de usuario</label>
-      <input type="text" class="form-control" />
+      <input  formControlName="username" type="text" class="form-control" />
     </div>
     <div class="form-group">
       <label>Nombre(s)</label>
-      <input type="text" class="form-control" />
+      <input  formControlName="name" type="text" class="form-control" />
     </div>
     <div class="form-group">
       <label>Apellido paterno</label>
-      <input type="text" class="form-control" />
+      <input  formControlName="father_surname" type="text" class="form-control" />
     </div>
     <div class="form-group">
       <label>Apellido materno</label>
-      <input type="text" class="form-control" />
+      <input  formControlName="mother_surname" type="text" class="form-control" />
     </div>
     <div class="form-group">
       <label>foto de perfil</label>
-      <input type="file" class="form-control" />
+      <input  formControlName="photo" type="file" (change)="uploadFile($event)" class="form-control" />
+      <!-- <img width="50%" [src]="image" alt=""> -->
     </div>
     <div class="form-group">
       <label>correo electrónico</label>
-      <input type="email" class="form-control" />
+      <input  formControlName="email" type="email" class="form-control" />
     </div>
     <div class="form-group">
       <label>Contraseña</label>
-      <input type="password" class="form-control" />
+      <input  formControlName="password" type="password" class="form-control" />
     </div>
     <button type="submit" class="btn btn-primary">Registrarse</button>
   </form>

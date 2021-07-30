@@ -1,16 +1,17 @@
 <div class="login-form">
-  <h1>Bienvenido</h1>
-    <form action="/home">
-      <div class="form-group">
-        <label>Correo eletrónico</label>
-        <input type="email" class="form-control" />
-      </div>
-      <div class="form-group">
-        <label>Contraseña</label>
-        <input type="password" class="form-control" />
-      </div>
-        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-      </form>
-      <a routerLink="">¿Olvidaste tu contraseña?</a>
-      <a routerLink="/register">Registrarse aquí</a>
+    <h1>Bienvenido</h1>
+    <form [formGroup]="user" (ngSubmit)="login($event)">
+        <div>
+            <label>Correo eletrónico</label>
+            <input formControlName="email" type="email" class="form-control" />
+        </div>
+        <div>
+            <label>Contraseña</label>
+            <input formControlName="password" type="password" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Inciar Sesion</button>
+
+    </form>
+    <a routerLink="">¿Olvidaste tu contraseña?</a>
+    <a routerLink="/register">Registrarse aquí</a>
 </div>
