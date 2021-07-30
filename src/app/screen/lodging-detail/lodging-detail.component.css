@@ -74,3 +74,12 @@
 .hide {
     visibility: hidden;
 }
+
+.btn-primary {
+    margin: 20px;
+    width: 80%;
+    height: 60px;
+    border: none;
+    background-color: #FF4D00;
+    outline: none;
+}
