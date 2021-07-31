@@ -7,16 +7,26 @@ import { AuthService } from '../core/services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class navbarrComponent implements OnInit {
-
-  constructor(private auth:AuthService, private router:Router) { }
-
-  ngOnInit(): void {
+  user = false;
+  constructor(private auth: AuthService, private router: Router) {
+    
   }
-  logout(){
-    this.auth.logout().then(()=>{
-      this.router.navigate(['/login'])
+  ngDoCheck(){
+    const log = localStorage.getItem("user");
+    if(log){
+      this.user=true;
+    }else{
+      this.user=false;
+    }
+  }
+  ngOnInit() {
+  }
+
+  logout() {
+    this.auth.logout().then(() => {
+      this.router.navigate(["/login"]);
     })
   }
 
-  
+
 }
