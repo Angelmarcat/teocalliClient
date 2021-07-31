@@ -65,3 +65,31 @@ img {
     background-color: #ff0000;
     outline: none;
 }
+
+.titleModal {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, 'Geneva', 'Verdana', 'sans-serif';
+    text-align: center;
+    font-size: x-large;
+}
+
+.titleBody {
+    color: black;
+    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+    text-align: justify;
+    font-size: x-large;
+}
+
+.formatText {
+    color: black;
+    width: 100%;
+}
+
+.btn-half {
+    width: 40%;
+}
+
+.div-modal-color {
+    background-color: #cccccc;
+    border-radius: 30px;
+}
