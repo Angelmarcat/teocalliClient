@@ -4,7 +4,13 @@
             <h3>Mi perfil</h3>
         </div>
         <div class="description">
-            <img [src]="userData.photo" alt="profil" />
+            <div class="container-1">
+                <img class="image img-foto img-responsive" [src]="userData.photo" alt="profil" />
+                <div class="middle">
+                    <button type="button" class="btn btn-editar">Editar Foto</button>
+                </div>
+            </div>
+
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi at minus id quo odit officiis quaerat accusantium repellendus maxime hic culpa harum, exercitationem asperiores ipsa esse, labore reprehenderit atque adipisci?
             </p>
@@ -17,8 +23,8 @@
         </div>
         <div class="files">
             <button type="button" class="btn btn-primary">INE<img *ngIf="userData.documents.ine" class="btn-white" src="../../../assets/boton-x.svg" alt=""></button>
-            <button type="button" class="btn btn-primary">COMP ESTUDIO <img *ngIf="userData.documents.compEst" class="btn-white" src="../../../assets/boton-x.svg" alt=""></button>
-            <button type="button" class="btn btn-primary">COMP DOMICILIO AVAL<img class="btn-white" src="../../../assets/boton-x.svg" alt=""></button>
+            <button type="button" class="btn btn-primary">COMPROBANTE DE ESTUDIO <img *ngIf="userData.documents.compEst" class="btn-white" src="../../../assets/boton-x.svg" alt=""></button>
+            <button type="button" class="btn btn-primary">COMPROBANTE DE DOMICILIO O AVAL<img class="btn-white" src="../../../assets/boton-x.svg" alt=""></button>
             <button type="button" class="btn btn-primary">INE AVAL<img class="btn-white" src="../../../assets/boton-x.svg" alt=""></button>
         </div>
     </div>
