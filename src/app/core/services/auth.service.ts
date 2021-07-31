@@ -26,13 +26,18 @@ export class AuthService {
   }
 
   async login(email: string, password: string) {
-    const user  = await this.af.signInWithEmailAndPassword(email, password);
-    if(user && user.user.emailVerified){
-      this.router.navigate(['/home']);
-    }else{
-      this.router.navigate(['/login']);
-      alert("Este correo no ha sido verificado favor de revisar su correo");
-    }
+    const user  = await this.af.signInWithEmailAndPassword(email, password).then((res)=>{
+      console.log(res.user.uid);
+      localStorage.setItem("user",JSON.stringify(res.user));
+      this.getUserCurrent(res.user.uid).subscribe((res)=>{
+        localStorage.setItem("userData",JSON.stringify(res));
+      });
+    });
+    // if(user && user.user.emailVerified){
+    //   this.router.navigate(['/home']);
+    // }else if(user){
+    //   alert("Este correo no ha sido verificado favor de revisar su correo");
+    // }
   }
   async verificar(): Promise<void> {
     return (await this.af.currentUser).sendEmailVerification().then((res) => {
@@ -40,6 +45,8 @@ export class AuthService {
     });
   }
   logout() {
+    localStorage.removeItem("user");
+    localStorage.removeItem("userData");
     return this.af.signOut();
   }
 

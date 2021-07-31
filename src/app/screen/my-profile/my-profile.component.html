@@ -4,7 +4,7 @@
             <h3>Mi perfil</h3>
         </div>
         <div class="description">
-            <img src="../../../assets/profil.jpg" alt="profil" />
+            <img [src]="userData.photo" alt="profil" />
             <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi at minus id quo odit officiis quaerat accusantium repellendus maxime hic culpa harum, exercitationem asperiores ipsa esse, labore reprehenderit atque adipisci?
             </p>
@@ -16,10 +16,10 @@
             <h3>Archivos</h3>
         </div>
         <div class="files">
-            <button type="button" class="btn btn-primary">INE</button>
-            <button type="button" class="btn btn-primary">COMP EST</button>
-            <button type="button" class="btn btn-primary">COMP DOM AVAL</button>
-            <button type="button" class="btn btn-primary">INE AVAL</button>
+            <button type="button" class="btn btn-primary">INE<img *ngIf="userData.documents.ine" class="btn-white" src="../../../assets/boton-x.svg" alt=""></button>
+            <button type="button" class="btn btn-primary">COMP ESTUDIO <img *ngIf="userData.documents.compEst" class="btn-white" src="../../../assets/boton-x.svg" alt=""></button>
+            <button type="button" class="btn btn-primary">COMP DOMICILIO AVAL<img class="btn-white" src="../../../assets/boton-x.svg" alt=""></button>
+            <button type="button" class="btn btn-primary">INE AVAL<img class="btn-white" src="../../../assets/boton-x.svg" alt=""></button>
         </div>
     </div>
 </div>

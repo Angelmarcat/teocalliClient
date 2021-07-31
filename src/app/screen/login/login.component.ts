@@ -30,7 +30,8 @@ export class LoginComponent implements OnInit {
       this.authService.login(value.email, value.password)
         .then((res) => {
           console.log(res);
-          this.router.navigate(['/lodgings'])
+          this.router.navigate(['/lodgings']);
+          
         })
         .catch(() => {
           alert('no es valido');

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { finalize } from 'rxjs/operators';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -23,7 +24,7 @@ export class RegisterComponent implements OnInit {
   image;
   file;
   dir;
-  constructor(private formBuilder: FormBuilder, private auth: AuthService, private storage: AngularFireStorage) {
+  constructor(private formBuilder: FormBuilder, private auth: AuthService, private storage: AngularFireStorage, private router:Router) {
   }
 
   ngOnInit(): void {
@@ -39,34 +40,16 @@ export class RegisterComponent implements OnInit {
         finalize(() => {
           this.image = fileRef.getDownloadURL();
           this.image.subscribe(url => {
-            console.log(this.user.value);
             this.user.value.photo = url;
-            console.log(this.user.value);
-            this.auth.createUser(this.user.value);
+            this.auth.createUser(this.user.value).then(()=>{
+              this.router.navigate(["/login"]);
+            });
           });
         })
       ).subscribe();
-
-    console.log(this.user.value);
   }
 
   uploadFile(event) {
-    // const file = event.target.files[0];
-    // const dir = "profilePhoto";
-    // const fileRef = this.storage.ref(dir);
-    // const task = this.storage.upload(dir, file);
-
-    // task.snapshotChanges()
-    //   .pipe(
-    //     finalize(() => {
-    //       this.image$ = fileRef.getDownloadURL();
-    //     })
-    //   )
-    //   .subscribe();
-
-    // console.log(event);
-    // console.log(this.dir);
-
     var reader = new FileReader();
 
     reader.readAsDataURL(event.target.files[0]); // read file as data url
@@ -78,27 +61,6 @@ export class RegisterComponent implements OnInit {
     this.dir = "profilePhoto" + Date.now();
 
 
-    // const fileRef= this.storage.ref(dir);
-    // const task = this.storage.upload(dir,file);
-
-
-  }
-  File(event) {
-    const file = event.target.files[0];
-    const name = 'image.png';
-    const fileRef = this.storage.ref(name);
-    const task = this.storage.upload(name, file);
-
-    task.snapshotChanges()
-      .pipe(
-        finalize(() => {
-          this.image$ = fileRef.getDownloadURL();
-          this.image$.subscribe((url) =>
-            console.log(url)
-          )
-        })
-      )
-      .subscribe();
   }
 
 

@@ -19,8 +19,8 @@
     </div>
     <div class="form-group">
       <label>foto de perfil</label>
-      <input  formControlName="photo" type="file" (change)="uploadFile($event)" class="form-control" />
-      <!-- <img width="50%" [src]="image" alt=""> -->
+        <input  formControlName="photo" type="file" (change)="uploadFile($event)" class="form-control" />
+        <img width="30%" [src]="image$" alt="">
     </div>
     <div class="form-group">
       <label>correo electrónico</label>
