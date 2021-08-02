@@ -16,9 +16,12 @@ export class RegisterComponent implements OnInit {
     name: ['', [Validators.required]],
     father_surname: ['', [Validators.required]],
     mother_surname: ['', [Validators.required]],
+    birthday: ['', [Validators.required]],
+    gender: ['', [Validators.required]],
     photo: [''],
     email: ['', [Validators.email]],
     password: ['', [Validators.required]],
+
   });
   image$: any;
   image;
