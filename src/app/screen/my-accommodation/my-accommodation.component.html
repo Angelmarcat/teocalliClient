@@ -1,4 +1,7 @@
-<div class="myaccomodation">
+<div *ngIf="!acomodation">
+    <p>Todavia no exixte un alojamiento para este usuario</p>
+</div>
+<div class="myaccomodation" *ngIf="acomodation">
     <div class="info">
         <div class="title">
             <h3>Mi hospedaje</h3>
@@ -13,7 +16,8 @@
     </div>
     <br>
     <div class="rank">
-        <img src="../../../assets/image.jpg" alt="">
+        <img src="{{acomodation.photos[1].photo}}" alt=""><br>
+        <h3>{{acomodation.name}}</h3>
     </div>
 
 

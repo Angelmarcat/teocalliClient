@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
 uid;
   constructor(private as: AuthService) { 
     this.uid = JSON.parse(localStorage.getItem("user")).uid;
-    this.as.getUserCurrent(this.uid).subscribe((res)=>{
+    this.as.getUserCurrent().subscribe((res)=>{
       console.log(res);
       localStorage.setItem('userData',JSON.stringify(res));
     })

@@ -16,9 +16,12 @@ export class RegisterComponent implements OnInit {
     name: ['', [Validators.required]],
     father_surname: ['', [Validators.required]],
     mother_surname: ['', [Validators.required]],
+    birthday: ['', [Validators.required]],
+    gender: ['', [Validators.required]],
     photo: [''],
     email: ['', [Validators.email]],
     password: ['', [Validators.required]],
+
   });
   image$: any;
   image;
@@ -32,6 +35,7 @@ export class RegisterComponent implements OnInit {
 
   async registrar(event: Event) {
     event.preventDefault();
+    console.log(this.user.valid);
     const fileRef = this.storage.ref("photoProfile/" + this.dir);
     const task = this.storage.upload("photoProfile/" + this.dir, this.file);
 

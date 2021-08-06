@@ -2,15 +2,25 @@
     <div class="row">
         <div class="col-6 move-left">
             <div class="input-group">
+<<<<<<< HEAD
                 <input type="search" class="form-control rounded btn-border" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                 <button type="button" class="btn"><img class="btn-white" src="../../../assets/search.svg"
                         alt=""></button>
+=======
+                <form [formGroup]="dato" (ngSubmit)="search($event)">
+                    <input type="search" formControlName="search" name="search" class="form-control rounded btn-border"
+                        placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    <button type="submit" class="btn"><img class="btn-white" src="../../../assets/search.svg"
+                            alt=""></button>
+                </form>
+>>>>>>> feature/lodging
 
             </div>
         </div>
     </div>
 </div>
 
+<<<<<<< HEAD
 <!-- <div class="container">
     <a class="a-none" routerLink="/lodgingDetail">
         <div class="row lodging">
@@ -40,11 +50,29 @@
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa quae magni quaerat, explicabo voluptates delectus provident soluta expedita sapiente laudantium, cumque placeat, assumenda id possimus maxime obcaecati deleniti eligendi. Non. Placeat, nobis
                     natus temporibus illo sequi eaque blanditiis corporis ad voluptatibus ratione quis libero eveniet eos quod a quos expedita porro incidunt voluptatem. Veniam natus, cupiditate sapiente at alias blanditiis! Molestiae, illum itaque asperiores
                     ullam doloribus nam facere quos magnam. Labore, dolores corrupti architecto autem deleniti perferendis quibusdam minus quia excepturi animi vitae amet voluptates deserunt inventore laboriosam! Aliquid, iusto.
+=======
+<div class="container" *ngIf="query">
+    <a class="a-none" (click)="lodgingDetail(query.id)">
+        <div class="row lodging">
+            <div class="col-3" *ngIf="query.photos">
+                <img class="lodgin" src="{{query.photos[1].photo}}" alt="">
+            </div>
+            <div class="col-3" *ngIf="!query.photos">
+                <img class="lodgin" src="../../../assets/carrusel1.jpg" alt="">
+            </div>
+            <div class="col-8">
+                <h1 class="tittle">{{query.name }}</h1>
+                <p class="p-lodgin">
+                    Alojamientos disponibles: {{query.rooms}} <br>
+                    Ciudad: {{query.location.city}} <br>
+                    Estado: {{query.location.state}}
+>>>>>>> feature/lodging
                 </p>
             </div>
         </div>
     </a>
 </div>
+<<<<<<< HEAD
 <div class="container lodging">
     <a class="a-none" routerLink="/lodgingDetail">
         <div class="row">
@@ -79,7 +107,27 @@
                     natus temporibus illo sequi eaque blanditiis corporis ad voluptatibus ratione quis libero eveniet eos quod a quos expedita porro incidunt voluptatem. Veniam natus, cupiditate sapiente at alias blanditiis! Molestiae, illum itaque asperiores
                     ullam doloribus nam facere quos magnam. Labore, dolores corrupti architecto autem deleniti perferendis quibusdam minus quia excepturi animi vitae amet voluptates deserunt inventore laboriosam! Aliquid, iusto.
                 </p>
+=======
+<div *ngIf="!query">
+    <div class="container" *ngFor="let l of lodgings">
+        <a class="a-none" (click)="lodgingDetail(l.id)">
+            <div class="row lodging">
+                <div class="col-3" *ngIf="l.photos">
+                    <img class="lodgin" src="{{l.photos[1].photo}}" alt="">
+                </div>
+                <div class="col-3" *ngIf="!l.photos">
+                    <img class="lodgin" src="../../../assets/carrusel1.jpg" alt="">
+                </div>
+                <div class="col-8">
+                    <h1 class="tittle">{{l.name }}</h1>
+                    <p class="p-lodgin">
+                        Alojamientos disponibles: {{l.rooms}} <br>
+                        Ciudad: {{l.location.city}} <br>
+                        Estado: {{l.location.state}}
+                    </p>
+                </div>
+>>>>>>> feature/lodging
             </div>
-        </div>
-    </a>
+        </a>
+    </div>
 </div>

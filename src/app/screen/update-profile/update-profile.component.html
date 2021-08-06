@@ -1,22 +1,38 @@
 <div class="update-form">
     <h1>Actualizar perfil</h1>
-    <form>
+    <form [formGroup]="user" (ngSubmit)="datos($event)">
         <h3>Perfil</h3>
         <div class="form-group">
             <label>Nombre de usuario</label>
-            <input type="text" class="form-control" />
+            <input type="text" formControlName="username" class="form-control" />
         </div>
         <div class="form-group">
             <label>Nombre(s)</label>
-            <input type="text" class="form-control" />
+            <input type="text" formControlName="name" class="form-control" />
         </div>
         <div class="form-group">
             <label>Apellido paterno</label>
-            <input type="text" class="form-control" />
+            <input type="text" formControlName="fatherSurname" class="form-control" />
         </div>
         <div class="form-group">
             <label>Apellido materno</label>
-            <input type="text" class="form-control" />
+            <input type="text" formControlName="motherSurname" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Fecha de nacimiento</label>
+            <input type="date" formControlName="birthDate" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>sexo</label><br>
+            <label>
+                <input type="radio" value="Male" formControlName="gender">
+                <span>Hombre</span>
+            </label>
+            
+            <label>
+                <input type="radio" value="Female" formControlName="gender">
+                <span>Mujer</span>
+            </label>
         </div>
         <button type="submit" class="btn btn-primary">Actualizar</button>
     </form>

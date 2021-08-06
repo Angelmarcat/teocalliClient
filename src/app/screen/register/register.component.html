@@ -3,32 +3,48 @@
   <form [formGroup]="user" (ngSubmit)="registrar($event)">
     <div class="form-group">
       <label>Nombre de usuario</label>
-      <input  formControlName="username" type="text" class="form-control" />
+      <input formControlName="username" type="text" class="form-control" />
     </div>
     <div class="form-group">
       <label>Nombre(s)</label>
-      <input  formControlName="name" type="text" class="form-control" />
+      <input formControlName="name" type="text" class="form-control" />
     </div>
     <div class="form-group">
       <label>Apellido paterno</label>
-      <input  formControlName="father_surname" type="text" class="form-control" />
+      <input formControlName="father_surname" type="text" class="form-control" />
     </div>
     <div class="form-group">
       <label>Apellido materno</label>
-      <input  formControlName="mother_surname" type="text" class="form-control" />
+      <input formControlName="mother_surname" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>Fecha de nacimiento</label>
+      <input type="date" formControlName="birthday" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label>sexo</label><br>
+      <label>
+        <input type="radio" value="Male" formControlName="gender">
+        <span>Hombre</span>
+      </label>
+
+      <label>
+        <input type="radio" value="Female" formControlName="gender">
+        <span>Mujer</span>
+      </label>
     </div>
     <div class="form-group">
       <label>foto de perfil</label>
-        <input  formControlName="photo" type="file" (change)="uploadFile($event)" class="form-control" />
-        <img width="30%" [src]="image$" alt="">
+      <input formControlName="photo" type="file" (change)="uploadFile($event)" class="form-control" />
+      <img width="30%" [src]="image$" alt="">
     </div>
     <div class="form-group">
       <label>correo electrónico</label>
-      <input  formControlName="email" type="email" class="form-control" />
+      <input formControlName="email" type="email" class="form-control" />
     </div>
     <div class="form-group">
       <label>Contraseña</label>
-      <input  formControlName="password" type="password" class="form-control" />
+      <input formControlName="password" type="password" class="form-control" />
     </div>
     <button type="submit" class="btn btn-primary">Registrarse</button>
   </form>

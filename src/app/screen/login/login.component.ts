@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
 
   private buildForm() {
     this.user = this.fb.group({
-      email: ['', [Validators.email]],
+      email: [null, [Validators.email]],
       password: ['', [Validators.required]]
     })
   }
@@ -29,14 +29,11 @@ export class LoginComponent implements OnInit {
       const value = this.user.value;
       this.authService.login(value.email, value.password)
         .then((res) => {
-          console.log(res);
           this.router.navigate(['/lodgings']);
-          
         })
         .catch(() => {
-          alert('no es valido');
+          alert('la contraseña no es correcta o el correo no esta registrado');
         })
     }
-    console.log(this.user.value);
   }
 }
