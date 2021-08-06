@@ -1,8 +1,11 @@
-<div class="container">
+<div *ngIf="!lodging">
+
+</div>
+<div class="container" *ngIf="lodging">
     <div class="row">
         <div class="col-12">
             <nav class="div-title">
-                <h1 class="title">Express(nombre del alojamiento)</h1>
+                <h1 class="title">{{lodging.name}} </h1>
             </nav>
         </div>
 
@@ -13,8 +16,13 @@
             </div>
 
             <p class="p-detail">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis deserunt odit rem dolorum possimus tempore autem. At delectus praesentium error tenetur cum, ratione ea quis labore iure aut aliquid optio! Quae iste necessitatibus perspiciatis ex dignissimos
-                incidunt est provident suscipit corporis! Praesentium nam suscipit, eius velit accusamus quidem cumque voluptatibus natus impedit asperiores recusandae modi, assumenda ducimus alias neque qui.
+                Ciudad: {{lodging.location.city}} <br>
+                Distrito: {{lodging.location.district}} <br>
+                Numero: {{lodging.location.outdoorNumber}} <br>
+                Estadp: {{lodging.location.state}} <br>
+                Calle: {{lodging.location.street}} <br>
+                CP: {{lodging.location.zipCode}} <br>
+                
             </p>
 
             <nav>
@@ -29,11 +37,12 @@
                         <h1>espacio</h1>
                     </div>
                     <div class="col-3">
-                        <img class="img-profile" src="../../../assets/profil.jpg" alt="">
+                        <img *ngIf="lodging.manager.photo" class="img-profile" src="{{lodging.manager.photo}}" alt="">
+                        <img *ngIf="!lodging.manager.photo" class="img-profile" src="../../../assets/profilePhoto.png" alt="">
                     </div>
 
                     <div class="col-6">
-                        <h1 class="nombre-desing">Nombre completo</h1>
+                        <h1 class="nombre-desing">{{lodging.manager.firstName}}</h1>
                     </div>
                 </div>
 
@@ -42,8 +51,10 @@
                         Descripcion
                     </h1>
                     <p class="p-detail col-12">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam est possimus odit dolores velit sed placeat quisquam numquam iste. Itaque est impedit et quia odit voluptatem quasi qui consectetur perferendis? Corporis, quo! Nulla eaque corporis harum
-                        distinctio nisi libero dicta at delectus. Officiis mollitia quibusdam facere placeat expedita ipsam, similique optio voluptate perferendis debitis rem libero nulla dolorem id amet?
+                       Nombre: {{lodging.manager.firstName}} <br>
+                       Apellido parterno: {{lodging.manager.fatherSurname}} <br>
+                       Apellido materno: {{lodging.manager.motherSurname}} <br>
+                       Usuario: {{lodging.manager.username}} <br>
                     </p>
                     <h1 class="title-2 col-12">
                         Telefono
@@ -55,7 +66,7 @@
             </nav>
 
             <nav class="img-center">
-                <button type="button" class="btn btn-primary">Enviar solicitud</button>
+                <button type="button" class="btn btn-primary" (click)="sendRequest()">Enviar solicitud</button>
             </nav>
 
 

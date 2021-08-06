@@ -35,6 +35,7 @@ export class RegisterComponent implements OnInit {
 
   async registrar(event: Event) {
     event.preventDefault();
+    console.log(this.user.valid);
     const fileRef = this.storage.ref("photoProfile/" + this.dir);
     const task = this.storage.upload("photoProfile/" + this.dir, this.file);
 

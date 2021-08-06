@@ -2,55 +2,57 @@
     <div class="row">
         <div class="col-6 move-left">
             <div class="input-group">
-                <input type="search" class="form-control rounded btn-border" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                <button type="button" class="btn"><img class="btn-white" src="../../../assets/search.svg" alt=""></button>
+                <form [formGroup]="dato" (ngSubmit)="search($event)">
+                    <input type="search" formControlName="search" name="search" class="form-control rounded btn-border"
+                        placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+                    <button type="submit" class="btn"><img class="btn-white" src="../../../assets/search.svg"
+                            alt=""></button>
+                </form>
 
             </div>
         </div>
     </div>
 </div>
 
-<div class="container">
-    <a class="a-none" routerLink="/lodgingDetail">
+<div class="container" *ngIf="query">
+    <a class="a-none" (click)="lodgingDetail(query.id)">
         <div class="row lodging">
-            <div class="col-3">
-                <img class="lodgin" src="../../../assets/images.jpg" alt="">
+            <div class="col-3" *ngIf="query.photos">
+                <img class="lodgin" src="{{query.photos[1].photo}}" alt="">
+            </div>
+            <div class="col-3" *ngIf="!query.photos">
+                <img class="lodgin" src="../../../assets/carrusel1.jpg" alt="">
             </div>
             <div class="col-8">
-                <h1 class="tittle">Express</h1>
-                <p class="p-lodgin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est harum consequatur natus nulla. Tempore, exercitationem! Sint, dignissimos sequi esse nobis explicabo quia dolor nemo veniam minima ipsam natus obcaecati recusandae! Modi perspiciatis
-                    sed culpa voluptatum nihil at, ex dicta expedita impedit rem iusto ipsum? Quas voluptate eos quibusdam porro itaque eum, quis expedita vero, earum, facilis aspernatur consequatur labore rem?</p>
+                <h1 class="tittle">{{query.name }}</h1>
+                <p class="p-lodgin">
+                    Alojamientos disponibles: {{query.rooms}} <br>
+                    Ciudad: {{query.location.city}} <br>
+                    Estado: {{query.location.state}}
+                </p>
             </div>
         </div>
     </a>
 </div>
-
-<div class="container">
-    <a class="a-none" routerLink="/lodgingDetail">
-        <div class="row lodging">
-            <div class="col-3">
-                <img class="lodgin" src="../../../assets/images.jpg" alt="">
+<div *ngIf="!query">
+    <div class="container" *ngFor="let l of lodgings">
+        <a class="a-none" (click)="lodgingDetail(l.id)">
+            <div class="row lodging">
+                <div class="col-3" *ngIf="l.photos">
+                    <img class="lodgin" src="{{l.photos[1].photo}}" alt="">
+                </div>
+                <div class="col-3" *ngIf="!l.photos">
+                    <img class="lodgin" src="../../../assets/carrusel1.jpg" alt="">
+                </div>
+                <div class="col-8">
+                    <h1 class="tittle">{{l.name }}</h1>
+                    <p class="p-lodgin">
+                        Alojamientos disponibles: {{l.rooms}} <br>
+                        Ciudad: {{l.location.city}} <br>
+                        Estado: {{l.location.state}}
+                    </p>
+                </div>
             </div>
-            <div class="col-8">
-                <h1 class="tittle">Express</h1>
-                <p class="p-lodgin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est harum consequatur natus nulla. Tempore, exercitationem! Sint, dignissimos sequi esse nobis explicabo quia dolor nemo veniam minima ipsam natus obcaecati recusandae! Modi perspiciatis
-                    sed culpa voluptatum nihil at, ex dicta expedita impedit rem iusto ipsum? Quas voluptate eos quibusdam porro itaque eum, quis expedita vero, earum, facilis aspernatur consequatur labore rem?</p>
-            </div>
-        </div>
-    </a>
-</div>
-
-<div class="container">
-    <a class="a-none" routerLink="/lodgingDetail">
-        <div class="row lodging">
-            <div class="col-3">
-                <img class="lodgin" src="../../../assets/images.jpg" alt="">
-            </div>
-            <div class="col-8">
-                <h1 class="tittle">Express</h1>
-                <p class="p-lodgin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Est harum consequatur natus nulla. Tempore, exercitationem! Sint, dignissimos sequi esse nobis explicabo quia dolor nemo veniam minima ipsam natus obcaecati recusandae! Modi perspiciatis
-                    sed culpa voluptatum nihil at, ex dicta expedita impedit rem iusto ipsum? Quas voluptate eos quibusdam porro itaque eum, quis expedita vero, earum, facilis aspernatur consequatur labore rem?</p>
-            </div>
-        </div>
-    </a>
+        </a>
+    </div>
 </div>

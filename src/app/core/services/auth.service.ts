@@ -40,11 +40,18 @@ export class AuthService {
     });
 
   }
+  async recoverPassword(email){
+    this.af.sendPasswordResetEmail(email).then((res)=>{
+      console.log('exitoso');
+    }).catch((err)=>console.log(err));
+  }
+
   async verificar(): Promise<void> {
     return (await this.af.currentUser).sendEmailVerification().then((res) => {
       alert("revisa tu correo");
     });
   }
+
   logout() {
     localStorage.clear(); return this.af.signOut();
   }
@@ -63,12 +70,12 @@ export class AuthService {
       uid: uid,
       username: value.username,
       name: value.name,
-      father_surname: value.father_surname,
-      mother_surname: value.mother_surname,
+      fatherSrname: value.father_surname,
+      motherSurname: value.mother_surname,
       photo: value.photo,
       admin: false,
       gender: value.gender,
-      birthday: value.birthday
+      birthDate: value.birthday
     };
     return this.db.database.ref(`/users/${uid}`).set(data);
   }
@@ -82,5 +89,20 @@ export class AuthService {
     console.log(doc, value);
     this.db.database.ref(`/users/${this.userData.uid}/documents/${doc}`).set(value);
     return this.getUserCurrent();
+  }
+
+  uploadProfilePhoto(value) {
+    this.db.database.ref(`/users/${this.userData.uid}/photo`).set(value);
+    return this.getUserCurrent();
+  }
+  allLodgings() {
+    return this.db.list("/alojamientos").valueChanges();
+  }  
+  lodging(id) {
+    return this.db.object(`/alojamientos/${id}`).valueChanges();
+  }
+
+  request(request){
+    return this.db.database.ref('users/').set(request);
   }
 }

@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'validate', loadChildren: () => import('./screen/validate/validate.module').then(m => m.ValidateModule) },
   { path: 'register', loadChildren: () => import('./screen/register/register.module').then(m => m.RegisterModule) },
   { path: 'updateProfile',canActivate: [LoginGuard], loadChildren: () => import('./screen/update-profile/update-profile.module').then(m => m.UpdateProfileModule) },
-  { path: 'lodgingDetail', canActivate: [LoginGuard],loadChildren: () => import('./screen/lodging-detail/lodging-detail.module').then(m => m.LodgingDetailModule) },
+  { path: 'lodgingDetail/:id', canActivate: [LoginGuard],loadChildren: () => import('./screen/lodging-detail/lodging-detail.module').then(m => m.LodgingDetailModule) },
   { path: 'help', loadChildren: () => import('./screen/help/help.module').then(m => m.HelpModule) }];
 
 @NgModule({

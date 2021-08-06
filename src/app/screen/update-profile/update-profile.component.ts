@@ -16,9 +16,9 @@ export class UpdateProfileComponent implements OnInit {
     this.user = this.formBuilder.group({
       username: [this.userData.username, [Validators.required]],
       name: [this.userData.name, [Validators.required]],
-      father_surname: [this.userData.father_surname, [Validators.required]],
-      mother_surname: [this.userData.mother_surname, [Validators.required]],
-      birthday: [this.userData.birthday, [Validators.required]],
+      fatherSurname: [this.userData.fatherSurname, [Validators.required]],
+      motherSurname: [this.userData.motherSurname, [Validators.required]],
+      birthDate: [this.userData.birthDate, [Validators.required]],
       gender: [this.userData.gender, [Validators.required]]
     });
   }

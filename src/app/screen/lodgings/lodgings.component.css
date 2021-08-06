@@ -9,7 +9,10 @@
 .move-left {
     margin-left: 20em;
 }
-
+.lodgin{
+    vertical-align: middle;
+    width: 200px;
+}
 .lodging {
     margin-top: 1.5em;
     padding-top: 2em;
@@ -23,7 +26,7 @@
 }
 
 .img-lodging {
-    width: 100%;
+    width: 200px;
     height: 50em;
 }
 

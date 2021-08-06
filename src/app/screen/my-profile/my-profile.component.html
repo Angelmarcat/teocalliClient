@@ -5,11 +5,13 @@
             <h3>Mi perfil</h3>
         </div>
         <div class="description">
-            <img [src]="userData.photo" alt="profil" />
+            <img *ngIf="userData.photo" [src]="userData.photo" alt="profil" />
+            <img *ngIf="!userData.photo" src="../../../assets/profilePhoto.png" alt="profil" />
+            <input type="file"(change)="uploadProfilePhoto($event)" >
+            
             <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi at minus id quo odit officiis quaerat
-                accusantium repellendus maxime hic culpa harum, exercitationem asperiores ipsa esse, labore
-                reprehenderit atque adipisci?
+               Nombre: {{userData.name | uppercase}} {{userData.fatherSurname| uppercase}} {{userData.motherSurname|uppercase}} <br>
+               Fecha de nacimiento: {{userData.birthDate}}
             </p>
             <button routerLink="/updateProfile" type="button" class="btn btn-info">Actualizar mi perfil</button>
         </div>

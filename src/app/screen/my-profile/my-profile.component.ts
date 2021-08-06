@@ -29,28 +29,6 @@ export class MyProfileComponent implements OnInit {
       }
     })
   }
-
-  // searchDocuments(){
-  //   this.documents = [
-  //     { icon : "../../../assets/boton-x.svg"},
-  //     { icon : "../../../assets/boton-x.svg"},
-  //     { icon: "../../../assets/boton-x.svg"},
-  //     { icon: "../../../assets/boton-x.svg" },
-  //   ];
-  //   const arra = localStorage.getItem('userData');
-  //   const datos = JSON.parse(arra).documents;
-  //   for (let d of datos) {
-  //     if ('ine' === d.Name) {
-  //       console.log(d.Name);
-  //     } else if ('comprobantEstudio' === d.Name) {
-  //       console.log(d.Name);
-  //     } else if ('domicilioAval' === d.Name.substring(13)) {
-  //       console.log(d.Name);
-  //     } else if ('ineAval' === d.Name.substring(13)) {
-  //       console.log(d.Name);
-  //     }
-  //   }
-  // }
   uploadFile(event, doc) {
     event.preventDefault();
     const dir = doc + "/" + doc + Date.now();
@@ -69,5 +47,22 @@ export class MyProfileComponent implements OnInit {
         })
       ).subscribe();
   }
+  uploadProfilePhoto(event) {
+    event.preventDefault();
+    const dir = "/photoProfile/photoProfile" + Date.now();
+    const file = event.target.files[0];
+    const fileRef = this.storage.ref(dir);
+    const task = this.storage.upload(dir, file);
 
+    task.snapshotChanges()
+      .pipe(
+        finalize(() => {
+          const image = fileRef.getDownloadURL();
+          image.subscribe(url => {
+            this.auth.uploadProfilePhoto(url);
+            location.reload();
+          });
+        })
+      ).subscribe();
+  }
 }
