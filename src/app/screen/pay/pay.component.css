@@ -1,33 +1,44 @@
 .pay {
-  margin-left: auto;
-  margin-right: auto;
-  width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
 }
 
 .title {
-  margin-top: 20px;
-  margin-bottom: 50px;
-  text-align: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    text-align: center;
 }
 
 .row {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .pay-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
 .btn-primary {
-  background-color: #242424;
-  border: 1px solid #707070;
-  width: 300px;
-  height: 100px;
+    background-color: #242424;
+    border: 1px solid #707070;
+    width: 300px;
+    height: 100px;
 }
 
 .btn-primary:hover {
-  background-color: none;
+    background-color: none;
+}
+
+.modal-title {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.modal-text {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

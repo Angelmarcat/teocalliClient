@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-pay',
@@ -10,7 +11,21 @@ import { AuthService } from 'src/app/core/services/auth.service';
 })
 export class PayComponent implements OnInit {
   data;
-  constructor(private auth: AuthService, private datePipe: DatePipe, private router:Router) {
+  formPay;
+
+  constructor(public fb: FormBuilder, private auth: AuthService, private datePipe: DatePipe, private router: Router) {
+
+
+    {
+      this.formPay = this.fb.group({
+        numeroTarjeta: ['', Validators.required],
+        mes: ['', Validators.required],
+        age: ['', Validators.required],
+        cvv: ['', Validators.required]
+      });
+    }
+
+
     this.data = JSON.parse(localStorage.getItem("userData"))
     console.log(this.data);
   }
@@ -26,12 +41,29 @@ export class PayComponent implements OnInit {
       username: this.data.username,
       price: this.data.accommodation.price,
       accommodation: this.data.accommodation.name,
-      metod:'visa/mastercad debito-credito'
+      metod: 'visa/mastercad debito-credito'
     }
-    console.log(d);
-    this.auth.payRent(d).then((res) => {
-      console.log(res);
-      this.router.navigate(["/paymentHistory"])
-    })
+
+
+    // mensaje de pagado
+    document.getElementById("exampleModalLongTitle").innerText = 'El pago se realizo con exito.';
+    setTimeout(() => {
+      document.getElementById("modal-body").innerText = 'Redireccionando a historial de pagos en: 3 ';
+    },1000)
+    setTimeout(() => {
+      document.getElementById("modal-body").innerText = 'Redireccionando a historial de pagos en: 2 ';
+    },2000)
+    setTimeout(() => {
+      document.getElementById("modal-body").innerText = 'Redireccionando a historial de pagos en: 1 ';
+    },3000)
+
+    setTimeout(() => {
+      console.log(d);
+      this.auth.payRent(d).then((res) => {
+        console.log(res);
+        this.router.navigate(["/paymentHistory"])
+      })
+    }, 5000);
+
   }
 }

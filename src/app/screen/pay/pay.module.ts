@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import {DatePipe} from '@angular/common';
 import { PayRoutingModule } from './pay-routing.module';
 import { PayComponent } from './pay.component';
-
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,9 @@ import { PayComponent } from './pay.component';
   ],
   imports: [
     CommonModule,
-    PayRoutingModule
+    PayRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DatePipe]
 })

@@ -1,35 +1,71 @@
-<form action="">
-  <div class="pay">
-    <div class="title">
-      <h1>Pagar renta</h1>
+<form [formGroup]="formPay">
+    <div class="pay">
+        <div class="title">
+            <h1>Pagar renta</h1>
+        </div>
+        <div class="row mb-3">
+            <label for="c1" class="col-sm-2 col-form-label">Número de tarjeta</label>
+            <div class="col-sm-10">
+                <input formControlName="numeroTarjeta" type="text" class="form-control" id="c1" placeholder="xxxx xxxx xxxx xxxx" minlength="16" maxlength="16" autocomplete="off" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" />
+                <div *ngIf="formPay.get('numeroTarjeta').errors && formPay.get('numeroTarjeta').dirty">
+                    <p *ngIf="formPay.get('numeroTarjeta').hasError('minlength')">Minimo de caracteres es 16</p>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label for="r1" class="col-sm-2 col-form-label">Fecha de expiración</label>
+            <div class="col-sm-2">
+                <input formControlName="mes" type="text" class="form-control" id="r1" placeholder="mes" min="1" max="31" maxlength="2" autocomplete="off" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" />
+                <div *ngIf="formPay.get('mes').errors && formPay.get('mes').dirty">
+                    <p *ngIf="formPay.get('mes').hasError('min')">Debe ser entre 1 a 31</p>
+                    <p *ngIf="formPay.get('mes').hasError('maxlength')">Maximo dos digitos</p>
+                </div>
+            </div>
+            /
+            <div class="col-sm-2">
+                <input formControlName="age" type="text" class="form-control" id="r2" placeholder="año" minlength="2" maxlength="2" autocomplete="off" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" />
+            </div>
+            <label for="r3" class="col-sm-1 col-form-label">CVV</label>
+            <div class="col-sm-4">
+                <input formControlName="cvv" type="text" class="form-control" id="r3" placeholder="xxx" minlength="3" maxlength="3" autocomplete="off" required onkeypress="return (event.charCode >= 48 && event.charCode <= 57)" />
+                <div>
+                    <div *ngIf="formPay.get('cvv').errors && formPay.get('cvv').dirty">
+                        <p *ngIf="formPay.get('cvv').hasError('minlength')">Minimo de caracteres es 3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-2 col-form-label">Total a pagar</label>
+            <div class="col-sm-10">
+                <label class="col-sm-2 col-form-label">${{data.accommodation.price}}</label>
+            </div>
+        </div>
+        <div class="pay-button">
+            <button data-toggle="modal" data-target="#exampleModalCenter" type="submit" [disabled]="formPay.invalid" class="btn btn-primary" (click)="payRent()">Pagar</button>
+        </div>
     </div>
-    <div class="row mb-3">
-      <label for="c1" class="col-sm-2 col-form-label">Número de tarjeta</label>
-      <div class="col-sm-10">
-        <input type="number"  class="form-control" id="c1" />
-      </div>
-    </div>
-    <div class="row mb-3">
-      <label for="r1" class="col-sm-2 col-form-label">Fecha de expiración</label>
-      <div class="col-sm-3">
-        <input type="text" class="form-control" id="r1" />
-      </div>
-      <div class="col-sm-3">
-        <input type="text" class="form-control" id="r2" />
-      </div>
-      <label for="r3" class="col-sm-1 col-form-label">CVV</label>
-      <div class="col-sm-3">
-        <input type="number" class="form-control" id="r3" />
-      </div>
-    </div>
-    <div class="row mb-3">
-      <label class="col-sm-2 col-form-label">Total a pagar</label>
-      <div class="col-sm-10">
-        <label class="col-sm-2 col-form-label">${{data.accommodation.price}}</label>
-      </div>
-    </div>
-    <div class="pay-button">
-      <button type="button" class="btn btn-primary" (click)="payRent()">Pagar</button>
-    </div>
-  </div>
 </form>
+
+<div id="none1">
+    <h1 id="message-pay">
+
+    </h1>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+            </div>
+            <div class="modal-body">
+                <p id="modal-body" class="modal-text">
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>
