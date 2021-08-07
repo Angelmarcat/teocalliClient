@@ -1,48 +1,47 @@
 <div class="container">
     <div class="row">
         <div class="col-6 move-left">
-            <div>
+            <div class="input-group">
                 <form [formGroup]="dato" (ngSubmit)="search($event)">
                     <input type="search" formControlName="search" name="search" class="btn-search rounded btn-border" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
                     <button type="submit" class="btn"><img class="btn-white" src="../../../assets/search.svg"
                             alt="search"></button>
                 </form>
-
             </div>
         </div>
     </div>
 </div>
 
-<div class="container" *ngIf="query">
-    <a class="a-none" (click)="lodgingDetail(query.id)">
-        <div class="row lodging">
-            <div class="col-4" *ngIf="query.photos">
-                <img class="lodgin" src="{{query.photos[1].photo}}" alt="">
+<div *ngIf="query.length > 0">
+    <div class="container" *ngFor="let query of query">
+        <a class="a-none" (click)="lodgingDetail(query.id)">
+            <div class="row lodging">
+                <div class="col-3" *ngIf="query.firstPhoto">
+                    <img class="lodgin" src="{{query.firstPhoto}}" alt="">
+                </div>
+                <div class="col-3" *ngIf="!query.photos">
+                    <img class="lodgin" src="../../../assets/carrusel1.jpg" alt="">
+                </div>
+                <div class="col-8">
+                    <h1 class="tittle">{{query.name }}</h1>
+                    <p class="p-lodgin">
+                        Alojamientos disponibles: {{query.rooms}} <br> Ciudad: {{query.location.city}} <br> Estado: {{query.location.state}}
+                    </p>
+                </div>
             </div>
-            <div class="col-4" *ngIf="!query.photos">
-                <img class="lodgin" src="../../../assets/carrusel1.jpg" alt="">
-            </div>
-            <div class="col-8">
-                <h1 class="h-title">{{query.name }}</h1>
-                <p class="p-lodgin">
-                    Alojamientos disponibles: {{query.rooms}} <br> Ciudad: {{query.location.city}} <br> Estado: {{query.location.state}}
-                </p>
-            </div>
-        </div>
-    </a>
+        </a>
+    </div>
 </div>
 
-<div *ngIf="!query">
+<div *ngIf="query.length === 0">
     <div class="container" *ngFor="let l of lodgings">
         <a class="a-none" (click)="lodgingDetail(l.id)">
             <div class="row lodging">
-                <div class="col-4">
-                    <div *ngIf="l.photos">
-                        <img class="lodgin" src="{{l.photos[1].photo}}" alt="">
-                    </div>
-                    <div *ngIf="!l.photos">
-                        <img class="lodgin" src="../../../assets/carrusel1.jpg" alt="">
-                    </div>
+                <div class="col-3" *ngIf="l.firstPhoto">
+                    <img class="lodgin" src="{{l.firstPhoto}}" alt="">
+                </div>
+                <div class="col-3" *ngIf="!l.photos">
+                    <img class="lodgin" src="../../../assets/carrusel1.jpg" alt="">
                 </div>
                 <div class="col-8">
                     <h1 class="h-title">{{l.name }}</h1>

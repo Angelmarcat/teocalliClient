@@ -123,3 +123,14 @@ p {
     opacity: .8;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.titleModal {
+    color: black;
+    font-family: 'Segoe UI', Tahoma, 'Geneva', 'Verdana', 'sans-serif';
+    text-align: center;
+    font-size: x-large;
+}
+.div-modal-color {
+    background-color: #cccccc;
+    border-radius: 30px;
+}

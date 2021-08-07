@@ -15,7 +15,7 @@ export class UpdateProfileComponent implements OnInit {
     this.userData = JSON.parse(localStorage.getItem("userData"));
     this.user = this.formBuilder.group({
       username: [this.userData.username, [Validators.required]],
-      name: [this.userData.name, [Validators.required]],
+      firstName: [this.userData.firstName, [Validators.required]],
       fatherSurname: [this.userData.fatherSurname, [Validators.required]],
       motherSurname: [this.userData.motherSurname, [Validators.required]],
       birthDate: [this.userData.birthDate, [Validators.required]],

@@ -22,7 +22,7 @@ const routes: Routes = [
   { path: 'myAccommodation', canActivate: [LoginGuard], loadChildren: () => import('./screen/my-accommodation/my-accommodation.module').then(m => m.MyAccommodationModule) },
   { path: 'house', canActivate: [LoginGuard], loadChildren: () => import('./screen/house/house.module').then(m => m.HouseModule) },
   { path: 'paymentHistory',canActivate: [LoginGuard], loadChildren: () => import('./screen/payment-history/payment-history.module').then(m => m.PaymentHistoryModule) },
-  { path: 'viewPayments',canActivate: [LoginGuard], loadChildren: () => import('./screen/view-payments/view-payments.module').then(m => m.ViewPaymentsModule) },
+  { path: 'viewPayments/:id',canActivate: [LoginGuard], loadChildren: () => import('./screen/view-payments/view-payments.module').then(m => m.ViewPaymentsModule) },
   { path: 'rentPayment',canActivate: [LoginGuard], loadChildren: () => import('./screen/rent-payment/rent-payment.module').then(m => m.RentPaymentModule) },
   { path: 'pay', canActivate: [LoginGuard],loadChildren: () => import('./screen/pay/pay.module').then(m => m.PayModule) },
   { path: 'login',canActivate:[NoLoginGuard], loadChildren: () => import('./screen/login/login.module').then(m => m.LoginModule) },

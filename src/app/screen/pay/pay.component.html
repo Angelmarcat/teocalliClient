@@ -1,39 +1,35 @@
-<div class="pay">
-  <div class="title">
-    <h1>Pagar renta</h1>
-  </div>
-  <div class="row mb-3">
-    <label for="c1" class="col-sm-2 col-form-label"
-      >Número de tarjeta</label
-    >
-    <div class="col-sm-10">
-      <input
-        type="number"
-        class="form-control"
-        id="c1"
-      />
+<form action="">
+  <div class="pay">
+    <div class="title">
+      <h1>Pagar renta</h1>
+    </div>
+    <div class="row mb-3">
+      <label for="c1" class="col-sm-2 col-form-label">Número de tarjeta</label>
+      <div class="col-sm-10">
+        <input type="number"  class="form-control" id="c1" />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label for="r1" class="col-sm-2 col-form-label">Fecha de expiración</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="r1" />
+      </div>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="r2" />
+      </div>
+      <label for="r3" class="col-sm-1 col-form-label">CVV</label>
+      <div class="col-sm-3">
+        <input type="number" class="form-control" id="r3" />
+      </div>
+    </div>
+    <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Total a pagar</label>
+      <div class="col-sm-10">
+        <label class="col-sm-2 col-form-label">${{data.accommodation.price}}</label>
+      </div>
+    </div>
+    <div class="pay-button">
+      <button type="button" class="btn btn-primary" (click)="payRent()">Pagar</button>
     </div>
   </div>
-  <div class="row mb-3">
-    <label for="r1" class="col-sm-2 col-form-label">Fecha de expiración</label>
-    <div class="col-sm-3">
-      <input type="text" class="form-control" id="r1"/>
-    </div>
-    <div class="col-sm-3">
-      <input type="text" class="form-control" id="r2"/>
-    </div>
-    <label for="r3" class="col-sm-1 col-form-label">CVV</label>
-    <div class="col-sm-3">
-      <input type="number" class="form-control" id="r3"/>
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label class="col-sm-2 col-form-label">Total a pagar</label>
-    <div class="col-sm-10">
-      <label class="col-sm-2 col-form-label">$000.00</label>
-    </div>
-  </div>
-  <div class="pay-button">
-    <button type="button" class="btn btn-primary">Pagar</button>
-  </div>
-</div>
+</form>

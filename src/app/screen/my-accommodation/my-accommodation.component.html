@@ -16,7 +16,7 @@
     </div>
     <br>
     <div class="rank">
-        <img src="{{acomodation.photos[1].photo}}" alt=""><br>
+        <img src="{{acomodation.firstPhoto}}" alt=""><br>
         <h3>{{acomodation.name}}</h3>
     </div>
 
@@ -35,19 +35,22 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
             </div>
-            <div class="modal-body div-modal-color">
-                <h1 class="titleBody">
-                    Aqui podras mandar un reporte del alojamiento si es que presentas algunos incovenientes
-                </h1>
-                <hr>
-                <div class="formatText">
-                    <textarea class="formatText" name="" id="" cols="30" rows="10" placeholder="Escriba aqui su mensaje"></textarea>
+            <form [formGroup]="reports" (ngSubmit)="sendReport($event,acomodation.id)">
+                <div class="modal-body div-modal-color">
+                    <h1 class="titleBody">
+                        Aqui podras mandar un reporte del alojamiento si es que presentas algunos incovenientes
+                    </h1>
+                    <hr>
+                    <div class="formatText">
+                        <textarea class="formatText" formControlName="report" id="report" cols="30" rows="10" placeholder="Escriba aqui su mensaje"></textarea>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer div-modal-color">
-                <button type="button" class="btn btn-secondary btn-half" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary btn-half">Enviar reporte</button>
-            </div>
+                <div class="modal-footer div-modal-color">
+                    <button type="button" class="btn btn-secondary btn-half" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary btn-half" >Enviar reporte</button>
+                </div>
+            </form>
+            
         </div>
     </div>
 </div>
