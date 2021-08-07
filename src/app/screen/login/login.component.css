@@ -29,3 +29,43 @@ form {
 a {
     color: white;
 }
+
+.message-title {
+    font-size: 150%;
+}
+
+.message-login-animation {
+    background-color: red;
+    opacity: .5;
+    position: relative;
+    border-radius: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 3%;
+    animation: moveContent .5s linear;
+}
+
+@keyframes moveContent {
+    0% {
+        left: -5%;
+        top: 0px;
+    }
+    25% {
+        left: 5%;
+        top: 0px;
+    }
+    50% {
+        left: -5%;
+        top: 0px;
+    }
+    75% {
+        left: 5%;
+        top: 0px;
+    }
+    100% {
+        left: -5%;
+        top: 0px;
+    }
+}

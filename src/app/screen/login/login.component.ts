@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { timer } from 'rxjs';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -31,8 +32,19 @@ export class LoginComponent implements OnInit {
         .then((res) => {
           this.router.navigate(['/lodgings']);
         })
-        .catch(() => {
-          alert('la contraseña no es correcta o el correo no esta registrado');
+        .catch(() => { 
+
+          
+          document.getElementById("none1").classList.add('message-login-animation');
+          document.getElementById("message-login").innerText = 'La contraseña no es correcta o el correo no esta registrado.';
+          
+          setTimeout(() => {
+            document.getElementById("none1").classList.remove('message-login-animation');
+            document.getElementById("message-login").innerText = '';
+          },2000);
+
+          
+          
         })
     }
   }

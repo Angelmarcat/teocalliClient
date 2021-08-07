@@ -1,27 +1,15 @@
-
-<div  class="profile">
+<div class="profile">
     <div class="profile-description">
         <div class="title">
             <h3>Mi perfil</h3>
         </div>
         <div class="description">
-<<<<<<< HEAD
-            <div class="container-1">
-                <img class="image img-foto img-responsive" [src]="userData.photo" alt="profil" />
-                <div class="middle">
-                    <button type="button" class="btn btn-editar">Editar Foto</button>
-                </div>
-            </div>
-
-=======
             <img *ngIf="userData.photo" [src]="userData.photo" alt="profil" />
             <img *ngIf="!userData.photo" src="../../../assets/profilePhoto.png" alt="profil" />
-            <input type="file"(change)="uploadProfilePhoto($event)" >
-            
->>>>>>> feature/lodging
+            <input type="file" (change)="uploadProfilePhoto($event)">
+
             <p>
-               Nombre: {{userData.name | uppercase}} {{userData.fatherSurname| uppercase}} {{userData.motherSurname|uppercase}} <br>
-               Fecha de nacimiento: {{userData.birthDate}}
+                Nombre: {{userData.name | uppercase}} {{userData.fatherSurname| uppercase}} {{userData.motherSurname|uppercase}} <br> Fecha de nacimiento: {{userData.birthDate}}
             </p>
             <button routerLink="/updateProfile" type="button" class="btn btn-info">Actualizar mi perfil</button>
         </div>
@@ -31,12 +19,6 @@
             <h3>Archivos</h3>
         </div>
         <div class="files">
-<<<<<<< HEAD
-            <button type="button" class="btn btn-primary">INE<img *ngIf="userData.documents.ine" class="btn-white" src="../../../assets/boton-x.svg" alt=""></button>
-            <button type="button" class="btn btn-primary">COMPROBANTE DE ESTUDIO <img *ngIf="userData.documents.compEst" class="btn-white" src="../../../assets/boton-x.svg" alt=""></button>
-            <button type="button" class="btn btn-primary">COMPROBANTE DE DOMICILIO O AVAL<img class="btn-white" src="../../../assets/boton-x.svg" alt=""></button>
-            <button type="button" class="btn btn-primary">INE AVAL<img class="btn-white" src="../../../assets/boton-x.svg" alt=""></button>
-=======
 
             <button type="file" class="btn btn-primary">INE
                 <input type="file" (change)="uploadFile($event,'ine')">
@@ -59,7 +41,6 @@
                 <img *ngIf="!userData.documents.ineAval" class="btn-white" src="../../../assets/boton-x.svg" alt="">
                 <img *ngIf="userData.documents.ineAval" class="btn-white" src="../../../assets/comprobado.svg" alt="">
             </button>
->>>>>>> feature/lodging
         </div>
     </div>
 </div>
