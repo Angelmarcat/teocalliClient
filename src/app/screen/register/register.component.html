@@ -1,10 +1,7 @@
 <div class="login-form">
   <h1>Crear una nueva cuenta</h1>
   <form [formGroup]="user" (ngSubmit)="registrar($event)">
-    <div class="form-group">
-      <label>Nombre de usuario</label>
-      <input formControlName="username" type="text" class="form-control" />
-    </div>
+    
     <div class="form-group">
       <label>Nombre(s)</label>
       <input formControlName="name" type="text" class="form-control" />

@@ -18,6 +18,10 @@ export class MyProfileComponent implements OnInit {
     { icon: "../../../assets/boton-x.svg"},
     { icon: "../../../assets/boton-x.svg" },
   ];
+  image$: any;
+  image;
+  file;
+  dir;
   constructor(private auth: AuthService, private storage: AngularFireStorage) {
     this.userData = JSON.parse(localStorage.getItem("userData"));
   }
@@ -25,7 +29,7 @@ export class MyProfileComponent implements OnInit {
     await this.auth.getUserCurrent().subscribe((res) => {
       if (this.userData !== res) {
         localStorage.setItem("userData", JSON.stringify(res));
-
+        console.log(res);
       }
     })
   }
@@ -47,12 +51,11 @@ export class MyProfileComponent implements OnInit {
         })
       ).subscribe();
   }
+  
   uploadProfilePhoto(event) {
     event.preventDefault();
-    const dir = "/photoProfile/photoProfile" + Date.now();
-    const file = event.target.files[0];
-    const fileRef = this.storage.ref(dir);
-    const task = this.storage.upload(dir, file);
+    const fileRef = this.storage.ref("photoProfile/" + this.dir);
+    const task = this.storage.upload("photoProfile/" + this.dir, this.file);
 
     task.snapshotChanges()
       .pipe(
@@ -64,5 +67,19 @@ export class MyProfileComponent implements OnInit {
           });
         })
       ).subscribe();
+  }
+
+  opneFile(event) {
+    var reader = new FileReader();
+
+    reader.readAsDataURL(event.target.files[0]); // read file as data url
+
+    reader.onload = (event) => { // called once readAsDataURL is completed
+      this.image$ = event.target.result;
+    }
+    this.file = event.target.files[0];
+    this.dir = "profilePhoto" + Date.now();
+
+
   }
 }

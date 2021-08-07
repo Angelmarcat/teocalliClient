@@ -68,8 +68,8 @@ export class AuthService {
   addUserFirebase(uid: any, value: any) {
     const data = {
       uid: uid,
-      username: value.username,
-      name: value.name,
+      username: value.email,
+      firstName: value.firstName,
       fatherSrname: value.father_surname,
       motherSurname: value.mother_surname,
       photo: value.photo,
@@ -102,7 +102,17 @@ export class AuthService {
     return this.db.object(`/alojamientos/${id}`).valueChanges();
   }
 
-  request(request){
-    return this.db.database.ref('users/').set(request);
+  request(id,request){
+    return this.db.database.ref(`/alojamientos/${id}/requests`).push(request);
   }
+  payRent(value){
+    return this.db.database.ref(`/users/${this.userData.uid}/payments/${value.id}`).set(value);
+  }
+  payments(){
+    return this.db.object(`/users/${this.userData.uid}/payments`).valueChanges();
+  }
+  sendRerpot(id,report){
+    return this.db.database.ref(`/alojamientos/${id}/reports`).push(report);
+  }
+
 }

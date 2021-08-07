@@ -1,5 +1,5 @@
 <div *ngIf="!lodging">
-
+    no hay suficiente informacion de este alojamiento
 </div>
 <div class="container" *ngIf="lodging">
     <div class="row">
@@ -12,7 +12,7 @@
         <div class="col-12 div-detail">
 
             <div class="img-center">
-                <img class="img-detail" src="../../../assets/images.jpg" alt="">
+                <img *ngIf="lodging.firstPhoto" class="img-detail" src="{{lodging.firstPhoto}}" alt="">
             </div>
 
             <p class="p-detail">
@@ -64,9 +64,9 @@
                     </p>
                 </div>
             </nav>
-
+            <!-- {{date|date:'H:mm'}} -->
             <nav class="img-center">
-                <button type="button" class="btn btn-primary" (click)="sendRequest()">Enviar solicitud</button>
+                <button type="button" class="btn btn-primary" (click)="sendRequest(lodging.id)">Enviar solicitud</button>
             </nav>
 
 

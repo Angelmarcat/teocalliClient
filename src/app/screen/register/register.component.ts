@@ -12,8 +12,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   user = this.formBuilder.group({
-    username: ['', [Validators.required]],
-    name: ['', [Validators.required]],
+    firstName: ['', [Validators.required]],
     father_surname: ['', [Validators.required]],
     mother_surname: ['', [Validators.required]],
     birthday: ['', [Validators.required]],

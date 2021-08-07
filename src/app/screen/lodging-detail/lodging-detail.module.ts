@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import {DatePipe} from '@angular/common';
 import { LodgingDetailRoutingModule } from './lodging-detail-routing.module';
 import { LodgingDetailComponent } from './lodging-detail.component';
 
@@ -12,6 +13,7 @@ import { LodgingDetailComponent } from './lodging-detail.component';
   imports: [
     CommonModule,
     LodgingDetailRoutingModule
-  ]
+  ],
+  providers: [DatePipe]
 })
 export class LodgingDetailModule { }
