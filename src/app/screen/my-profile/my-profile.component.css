@@ -78,8 +78,10 @@ p {
 }
 
 .btn-white {
-    width: 5%;
+    width: 50px;
     float: right;
+    margin-right: 10px;
+
 }
 
 .container-1 {
@@ -133,4 +135,35 @@ p {
 .div-modal-color {
     background-color: #cccccc;
     border-radius: 30px;
+}
+
+.button_upload {
+  margin-left: 20px;
+  padding: 10px;
+  background-color: #FF4D00;
+  cursor: pointer;
+}
+
+.buttonfiles {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  width: 60%;
+  height: 60px;
+  border: 1px solid white;
+  background-color: transparent;
+  border-radius: 45px;
+}
+
+.buttonup {
+  width: 15%;
+  padding: 5px;
+}
+
+.titleup {
+  width: 65%;
+}
+
+.validateup {
+  width: 20%;
 }
