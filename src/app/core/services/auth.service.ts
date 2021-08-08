@@ -40,10 +40,10 @@ export class AuthService {
     });
 
   }
-  async recoverPassword(email){
-    this.af.sendPasswordResetEmail(email).then((res)=>{
+  async recoverPassword(email) {
+    this.af.sendPasswordResetEmail(email).then((res) => {
       console.log('exitoso');
-    }).catch((err)=>console.log(err));
+    }).catch((err) => console.log(err));
   }
 
   async verificar(): Promise<void> {
@@ -97,21 +97,21 @@ export class AuthService {
   }
   allLodgings() {
     return this.db.list("/alojamientos").valueChanges();
-  }  
+  }
   lodging(id) {
     return this.db.object(`/alojamientos/${id}`).valueChanges();
   }
 
-  request(id,request){
+  request(id, request) {
     return this.db.database.ref(`/alojamientos/${id}/requests`).push(request);
   }
-  payRent(value){
+  payRent(value) {
     return this.db.database.ref(`/users/${this.userData.uid}/payments/${value.id}`).set(value);
   }
-  payments(){
+  payments() {
     return this.db.object(`/users/${this.userData.uid}/payments`).valueChanges();
   }
-  sendRerpot(id,report){
+  sendRerpot(id, report) {
     return this.db.database.ref(`/alojamientos/${id}/reports`).push(report);
   }
 

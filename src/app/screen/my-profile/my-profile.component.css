@@ -167,3 +167,43 @@ p {
 .validateup {
   width: 20%;
 }
+
+.file-select {          
+    position: relative;
+    display: inline-block;
+  }
+   
+  .file-select::before {
+    background-color: #FF4D00;
+    color: white;
+    display: flex;            
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    content: 'Seleccionar'; /* testo por defecto */
+    position: absolute;
+    left: 10px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 10px;                
+  }
+   
+  .file-select input[type="file"] {
+    opacity: 0;
+    width: 200px;
+    height: 32px;
+    display: inline-block;            
+  }
+  #src-file1::before {
+    content: 'INE';
+  }
+  #src-file2::before {
+    content: 'Comprobante de estudio';
+  }
+  #src-file3::before {
+    content: 'Comprobante de domicilio';
+  }
+  #src-file4::before {
+    content: 'INE Aval';
+  }

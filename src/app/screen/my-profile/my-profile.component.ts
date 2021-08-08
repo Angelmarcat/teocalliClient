@@ -26,7 +26,7 @@ export class MyProfileComponent implements OnInit {
     this.userData = JSON.parse(localStorage.getItem("userData"));
   }
   async ngOnInit() {
-    await this.auth.getUserCurrent().subscribe((res) => {
+    await this.auth.getUser(this.userData.uid).subscribe((res) => {
       if (this.userData !== res) {
         localStorage.setItem("userData", JSON.stringify(res));
         console.log(res);
@@ -37,6 +37,7 @@ export class MyProfileComponent implements OnInit {
     event.preventDefault();
     const dir = doc + "/" + doc + Date.now();
     const file = event.target.files[0];
+    console.log(dir,file);
     const fileRef = this.storage.ref(dir);
     const task = this.storage.upload(dir, file);
 
