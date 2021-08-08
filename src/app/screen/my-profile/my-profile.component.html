@@ -1,107 +1,142 @@
 <div class="profile">
-    <div class="profile-description">
-        <div class="title">
-            <h3>Mi perfil</h3>
-        </div>
-        <div class="description">
-            <div class="container-1">
-                <img *ngIf="userData.photo" [src]="userData.photo" alt="profil" />
-                <img *ngIf="!userData.photo" src="../../../assets/profilePhoto.png" alt="profil" />
-                <div class="middle">
-                    <button type="button" class="btn btn-editar" data-toggle="modal" data-target="#exampleModal">Editar
-                        Foto</button>
-                </div>
-            </div>
-            <p>
-                Nombre: {{userData.name | uppercase}} {{userData.fatherSurname| uppercase}} {{userData.motherSurname|uppercase}} <br> Fecha de nacimiento: {{userData.birthDate}}
-            </p>
-            <button routerLink="/updateProfile" type="button" class="btn btn-info">Actualizar mi perfil</button>
-        </div>
+  <div class="profile-description">
+    <div class="title">
+      <h3>Mi perfil</h3>
     </div>
-    <div class="profile-files">
-        <div class="title">
-            <h3>Archivos</h3>
+    <div class="description">
+      <div class="container-1">
+        <img *ngIf="userData.photo" [src]="userData.photo" alt="profil" />
+        <img *ngIf="!userData.photo" src="../../../assets/profilePhoto.png" alt="profil" />
+        <div class="middle">
+          <button type="button" class="btn btn-editar" data-toggle="modal" data-target="#exampleModal">Editar
+            Foto</button>
         </div>
-        <div class="files">
+      </div>
+      <p>
+        Nombre: {{userData.name | uppercase}} {{userData.fatherSurname| uppercase}} {{userData.motherSurname|uppercase}}
+        <br> Fecha de nacimiento: {{userData.birthDate}}
+      </p>
+      <button routerLink="/updateProfile" type="button" class="btn btn-info">Actualizar mi perfil</button>
+    </div>
+  </div>
+  <div class="profile-files">
+    <div class="title">
+      <h3>Archivos</h3>
+    </div>
+    <div class="files">
 
-            <div class="buttonfiles">
-              <div class="buttonup">
-                <label class="button_upload" for="upload_file" title="Subir un archivo"><i class="fas fa-file-upload"></i></label>
-                <input id="upload_file" style='display: none;' type="file" (change)="uploadFile($event,'ine')">
-              </div>
-              <div class="titleup">
-                <label for="">INE</label>
-              </div>
-              <div class="validateup">
-                <img *ngIf="!userData.documents.ine" class="btn-white" src="../../../assets/boton-x.svg" alt="">
-                <img *ngIf="userData.documents.ine" class="btn-white" src="../../../assets/comprobado.svg" alt="">
-              </div>
-            </div>
-            <div class="buttonfiles">
-              <div class="buttonup">
-                <label class="button_upload" for="upload_file" title="Subir un archivo"><i class="fas fa-file-upload"></i></label>
-                <input id="upload_file" style='display: none;' type="file" (change)="uploadFile($event,'compEst')">
-              </div>
-              <div class="titleup">
-                <label for="">COMP. DE ESTUDIOS</label>
-              </div>
-              <div class="validateup">
-                <img *ngIf="!userData.documents.ine" class="btn-white" src="../../../assets/boton-x.svg" alt="">
-                <img *ngIf="userData.documents.ine" class="btn-white" src="../../../assets/comprobado.svg" alt="">
-              </div>
-            </div>
-            <div class="buttonfiles">
-              <div class="buttonup">
-                <label class="button_upload" for="upload_file" title="Subir un archivo"><i class="fas fa-file-upload"></i></label>
-                <input id="upload_file" style='display: none;' type="file" (change)="uploadFile($event,'compDomAval')">
-              </div>
-              <div class="titleup">
-                <label for="">COMP. DE DOM. (AVAL)</label>
-              </div>
-              <div class="validateup">
-                <img *ngIf="!userData.documents.ine" class="btn-white" src="../../../assets/boton-x.svg" alt="">
-                <img *ngIf="userData.documents.ine" class="btn-white" src="../../../assets/comprobado.svg" alt="">
-              </div>
-            </div>
-            <div class="buttonfiles">
-              <div class="buttonup">
-                <label class="button_upload" for="upload_file" title="Subir un archivo"><i class="fas fa-file-upload"></i></label>
-                <input id="upload_file" style='display: none;' type="file" (change)="uploadFile($event,'ineAval')">
-              </div>
-              <div class="titleup">
-                <label for="">INE (AVAL)</label>
-              </div>
-              <div class="validateup">
-                <img *ngIf="!userData.documents.ine" class="btn-white" src="../../../assets/boton-x.svg" alt="">
-                <img *ngIf="userData.documents.ine" class="btn-white" src="../../../assets/comprobado.svg" alt="">
-              </div>
-            </div>
+      <div class="buttonfiles">
+        <div class="buttonup">
+          <!-- <label class="button_upload" for="upload_file" title="Subir un archivo"><i
+              class="fas fa-file-upload"></i></label> -->
+          <div class="file-select" id="src-file1">
+            <input name="src-file1" type="file" (change)="uploadFile($event,'ine')">
+          </div>
+
         </div>
+        <div class="titleup">
+          <!-- <label for="">INE</label> -->
+        </div>
+        <div class="validateup" *ngIf="userData.documents">
+          <img *ngIf="!userData.documents.ine" class="btn-white" src="../../../assets/boton-x.svg" alt="">
+          <img *ngIf="userData.documents.ine" class="btn-white" src="../../../assets/comprobado.svg" alt="">
+        </div>
+        <div class="validateup" *ngIf="!userData.documents">
+          <img class="btn-white" src="../../../assets/boton-x.svg" alt="">
+        </div>
+      </div>
+
+
+      <div class="buttonfiles">
+        <div class="buttonup">
+          <!-- <label class="button_upload" for="upload_file" title="Subir un archivo"><i
+              class="fas fa-file-upload"></i></label> -->
+          <div class="file-select" id="src-file2">
+            <input name="src-file2" type="file" (change)="uploadFile($event,'compEst')">
+          </div>
+
+        </div>
+        <div class="titleup">
+          <!-- <label for="">COMP. DE ESTUDIOS</label> -->
+        </div>
+        <div class="validateup" *ngIf="userData.documents">
+          <img *ngIf="!userData.documents.compEst" class="btn-white" src="../../../assets/boton-x.svg" alt="">
+          <img *ngIf="userData.documents.compEst" class="btn-white" src="../../../assets/comprobado.svg" alt="">
+        </div>
+        <div class="validateup" *ngIf="!userData.documents">
+          <img class="btn-white" src="../../../assets/boton-x.svg" alt="">
+        </div>
+      </div>
+
+
+      <div class="buttonfiles">
+        <div class="buttonup">
+          <!-- <label class="button_upload" for="upload_file" title="Subir un archivo"><i
+              class="fas fa-file-upload"></i></label> -->
+          <div class="file-select" id="src-file3">
+            <input name="src-file3" type="file" (change)="uploadFile($event,'compDomAval')">
+          </div>
+
+        </div>
+        <div class="titleup">
+          <!-- <label for="">COMP. DE DOM. (AVAL)</label> -->
+        </div>
+        <div class="validateup" *ngIf="userData.documents">
+          <img *ngIf="!userData.documents.compDomAval" class="btn-white" src="../../../assets/boton-x.svg" alt="">
+          <img *ngIf="userData.documents.compDomAval" class="btn-white" src="../../../assets/comprobado.svg" alt="">
+        </div>
+        <div class="validateup" *ngIf="!userData.documents">
+          <img class="btn-white" src="../../../assets/boton-x.svg" alt="">
+        </div>
+      </div>
+      <div class="buttonfiles">
+        <div class="buttonup">
+          <!-- <label class="button_upload" for="upload_file" title="Subir un archivo"><i
+              class="fas fa-file-upload"></i></label> -->
+          <div class="file-select" id="src-file4">
+            <input name="src-file4" type="file" (change)="uploadFile($event,'ineAval')">
+          </div>
+
+        </div>
+        <div class="titleup">
+          <!-- <label for="">INE (AVAL)</label> -->
+        </div>
+        <div class="validateup" *ngIf="userData.documents">
+          <img *ngIf="!userData.documents.ineAval" class="btn-white" src="../../../assets/boton-x.svg" alt="">
+          <img *ngIf="userData.documents.ineAval" class="btn-white" src="../../../assets/comprobado.svg" alt="">
+        </div>
+        <div class="validateup" *ngIf="!userData.documents">
+          <img class="btn-white" src="../../../assets/boton-x.svg" alt="">
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog div-modal-color" role="document">
-        <div class="modal-content div-modal-color">
-            <div class="modal-header div-modal-color">
-                <h5 class="modal-title" id="exampleModalLabel"><span class="titleModal">Cambio de foto de perfil</span>
-                </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body div-modal-color">
-                <hr>
-                <div class="formatText">
-                    <input type="file" (change)="opneFile($event)" class="form-control" />
-                    <img width="30%" [src]="image$" alt="">
-                </div>
-            </div>
-            <div class="modal-footer div-modal-color">
-                <button type="button" class="btn btn-secondary btn-half" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary btn-half" (click)="uploadProfilePhoto($event)">Subir foto de perfil</button>
-            </div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog div-modal-color" role="document">
+    <div class="modal-content div-modal-color">
+      <div class="modal-header div-modal-color">
+        <h5 class="modal-title" id="exampleModalLabel"><span class="titleModal">Cambio de foto de perfil</span>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body div-modal-color">
+        <hr>
+        <div class="formatText">
+          <input type="file" (change)="opneFile($event)" class="form-control" />
+          <img width="30%" [src]="image$" alt="">
         </div>
+      </div>
+      <div class="modal-footer div-modal-color">
+        <button type="button" class="btn btn-secondary btn-half" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary btn-half" (click)="uploadProfilePhoto($event)">Subir foto de
+          perfil</button>
+      </div>
     </div>
+  </div>
 </div>
