@@ -42,3 +42,21 @@
     color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+.div-new-color {
+    opacity: .9999;
+    z-index: 1;
+    background-color: #cccccc;
+    border-radius: 30px;
+    width: 30%;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+    margin-top: -20%;
+    margin-left: 35%;
+}
+
+.position-message {
+    position: absolute;
+}

@@ -46,15 +46,16 @@ export class PayComponent implements OnInit {
 
 
     // mensaje de pagado
-    document.getElementById("exampleModalLongTitle").innerText = 'El pago se realizo con exito.';
+    document.getElementById("message-desing-modal").classList.add('div-new-color');
+    document.getElementById("none1").innerText = 'El pago se realizo con exito.';
     setTimeout(() => {
-      document.getElementById("modal-body").innerText = 'Redireccionando a historial de pagos en: 3 ';
+      document.getElementById("message-pay").innerText = 'Redireccionando a historial de pagos en: 3 ';
     },1000)
     setTimeout(() => {
-      document.getElementById("modal-body").innerText = 'Redireccionando a historial de pagos en: 2 ';
+      document.getElementById("message-pay").innerText = 'Redireccionando a historial de pagos en: 2 ';
     },2000)
     setTimeout(() => {
-      document.getElementById("modal-body").innerText = 'Redireccionando a historial de pagos en: 1 ';
+      document.getElementById("message-pay").innerText = 'Redireccionando a historial de pagos en: 1 ';
     },3000)
 
     setTimeout(() => {

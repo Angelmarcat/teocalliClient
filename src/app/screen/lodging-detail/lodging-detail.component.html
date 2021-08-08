@@ -16,13 +16,9 @@
             </div>
 
             <p class="p-detail">
-                Ciudad: {{lodging.location.city}} <br>
-                Distrito: {{lodging.location.district}} <br>
-                Numero: {{lodging.location.outdoorNumber}} <br>
-                Estadp: {{lodging.location.state}} <br>
-                Calle: {{lodging.location.street}} <br>
-                CP: {{lodging.location.zipCode}} <br>
-                
+                Ciudad: {{lodging.location.city}} <br> Distrito: {{lodging.location.district}} <br> Numero: {{lodging.location.outdoorNumber}} <br> Estadp: {{lodging.location.state}} <br> Calle: {{lodging.location.street}} <br> CP: {{lodging.location.zipCode}}
+                <br>
+
             </p>
 
             <nav>
@@ -51,10 +47,7 @@
                         Descripcion
                     </h1>
                     <p class="p-detail col-12">
-                       Nombre: {{lodging.manager.firstName}} <br>
-                       Apellido parterno: {{lodging.manager.fatherSurname}} <br>
-                       Apellido materno: {{lodging.manager.motherSurname}} <br>
-                       Usuario: {{lodging.manager.username}} <br>
+                        Nombre: {{lodging.manager.firstName}} <br> Apellido parterno: {{lodging.manager.fatherSurname}} <br> Apellido materno: {{lodging.manager.motherSurname}} <br> Usuario: {{lodging.manager.username}} <br>
                     </p>
                     <h1 class="title-2 col-12">
                         Telefono
@@ -66,10 +59,28 @@
             </nav>
             <!-- {{date|date:'H:mm'}} -->
             <nav class="img-center">
-                <button type="button" class="btn btn-primary" (click)="sendRequest(lodging.id)">Enviar solicitud</button>
+                <button data-toggle="modal" data-target="#exampleModal1" type="button" class="btn btn-primary" (click)="sendRequest(lodging.id)">Enviar solicitud</button>
             </nav>
 
 
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal2 -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content div-modal-color modal2center">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"><span class="titleModal">Estado dde la solicitud</span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            </div>
+            <h1 class="titleBody2">
+                Se envio exitosamente la solicitud
+            </h1>
         </div>
     </div>
 </div>

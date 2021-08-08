@@ -1,24 +1,26 @@
-<div *ngIf="!payments">
-  No se han hecho pagos
-</div>
-<div class="payments" *ngIf="payments">
-    <h3>Historial de pagos</h3>
-    <div class="titles">
-      <div class="date-title">
-        <h6>Fecha</h6>
-      </div>
-      <div class="moreinfo-title">
-        <h6>Más detalles</h6>
-      </div>
+<ng-container>
+    <div *ngIf="!payments">
+        No se han hecho pagos
     </div>
-    <div class="payment" *ngFor="let p of pays">
-      <div class="date">
-        <h6>{{p.date}}</h6>
-      </div>
-      <div class="moreinfo">
-        <a routerLink="/viewPayments/{{p.id}}"><img class="arrowIcon" src="../../../assets/arrow-right-circle-fill.svg" alt=""></a>
-      </div>
+    <div class="payments" *ngIf="payments">
+        <h3>Historial de pagos</h3>
+        <div class="titles">
+            <div class="date-title">
+                <h6>Fecha</h6>
+            </div>
+            <div class="moreinfo-title">
+                <h6>Más detalles</h6>
+            </div>
+        </div>
+        <div class="payment" *ngFor="let p of pays">
+            <div class="date">
+                <h6>{{p.date}}</h6>
+            </div>
+            <div class="moreinfo">
+                <a routerLink="/viewPayments/{{p.id}}"><img class="arrowIcon" src="../../../assets/arrow-right-circle-fill.svg" alt=""></a>
+            </div>
+        </div>
+
     </div>
-  
-  </div>
-  <!-- <button (click)="searc()">prueba</button> -->
+    <!-- <button (click)="searc()">prueba</button> -->
+</ng-container>
