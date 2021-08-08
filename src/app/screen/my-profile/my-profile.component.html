@@ -24,27 +24,58 @@
         </div>
         <div class="files">
 
-            <button type="file" class="btn btn-primary">INE
-                <input type="file" (change)="uploadFile($event,'ine')">
+            <div class="buttonfiles">
+              <div class="buttonup">
+                <label class="button_upload" for="upload_file" title="Subir un archivo"><i class="fas fa-file-upload"></i></label>
+                <input id="upload_file" style='display: none;' type="file" (change)="uploadFile($event,'ine')">
+              </div>
+              <div class="titleup">
+                <label for="">INE</label>
+              </div>
+              <div class="validateup">
                 <img *ngIf="!userData.documents.ine" class="btn-white" src="../../../assets/boton-x.svg" alt="">
                 <img *ngIf="userData.documents.ine" class="btn-white" src="../../../assets/comprobado.svg" alt="">
-            </button>
-            <button type="button" class="btn btn-primary">COMP ESTUDIO
-                <input type="file" (change)="uploadFile($event,'compEst')">
-                <img *ngIf="!userData.documents.compEst" class="btn-white" src="../../../assets/boton-x.svg" alt="">
-                <img *ngIf="userData.documents.compEst" class="btn-white" src="../../../assets/comprobado.svg" alt="">
-            </button>
-            <button type="button" class="btn btn-primary">COMP DOMICILIO AVAL
-                <input type="file" (change)="uploadFile($event,'compDomAval')">
-                <img *ngIf="!userData.documents.compDomAval" class="btn-white" src="../../../assets/boton-x.svg" alt="">
-                <img *ngIf="userData.documents.compDomAval" class="btn-white" src="../../../assets/comprobado.svg"
-                    alt="">
-            </button>
-            <button type="button" class="btn btn-primary">INE AVAL
-                <input type="file" (change)="uploadFile($event,'ineAval')">
-                <img *ngIf="!userData.documents.ineAval" class="btn-white" src="../../../assets/boton-x.svg" alt="">
-                <img *ngIf="userData.documents.ineAval" class="btn-white" src="../../../assets/comprobado.svg" alt="">
-            </button>
+              </div>
+            </div>
+            <div class="buttonfiles">
+              <div class="buttonup">
+                <label class="button_upload" for="upload_file" title="Subir un archivo"><i class="fas fa-file-upload"></i></label>
+                <input id="upload_file" style='display: none;' type="file" (change)="uploadFile($event,'compEst')">
+              </div>
+              <div class="titleup">
+                <label for="">COMP. DE ESTUDIOS</label>
+              </div>
+              <div class="validateup">
+                <img *ngIf="!userData.documents.ine" class="btn-white" src="../../../assets/boton-x.svg" alt="">
+                <img *ngIf="userData.documents.ine" class="btn-white" src="../../../assets/comprobado.svg" alt="">
+              </div>
+            </div>
+            <div class="buttonfiles">
+              <div class="buttonup">
+                <label class="button_upload" for="upload_file" title="Subir un archivo"><i class="fas fa-file-upload"></i></label>
+                <input id="upload_file" style='display: none;' type="file" (change)="uploadFile($event,'compDomAval')">
+              </div>
+              <div class="titleup">
+                <label for="">COMP. DE DOM. (AVAL)</label>
+              </div>
+              <div class="validateup">
+                <img *ngIf="!userData.documents.ine" class="btn-white" src="../../../assets/boton-x.svg" alt="">
+                <img *ngIf="userData.documents.ine" class="btn-white" src="../../../assets/comprobado.svg" alt="">
+              </div>
+            </div>
+            <div class="buttonfiles">
+              <div class="buttonup">
+                <label class="button_upload" for="upload_file" title="Subir un archivo"><i class="fas fa-file-upload"></i></label>
+                <input id="upload_file" style='display: none;' type="file" (change)="uploadFile($event,'ineAval')">
+              </div>
+              <div class="titleup">
+                <label for="">INE (AVAL)</label>
+              </div>
+              <div class="validateup">
+                <img *ngIf="!userData.documents.ine" class="btn-white" src="../../../assets/boton-x.svg" alt="">
+                <img *ngIf="userData.documents.ine" class="btn-white" src="../../../assets/comprobado.svg" alt="">
+              </div>
+            </div>
         </div>
     </div>
 </div>

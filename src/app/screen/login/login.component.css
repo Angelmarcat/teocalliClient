@@ -35,8 +35,7 @@ a {
 }
 
 .message-login-animation {
-    background-color: red;
-    opacity: .5;
+    background-color: #FF4D00;
     position: relative;
     border-radius: 2%;
     margin-top: 2%;
