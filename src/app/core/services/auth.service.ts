@@ -104,8 +104,8 @@ export class AuthService {
     return this.db.object(`/alojamientos/${id}`).valueChanges();
   }
 
-  request(id, request) {
-    return this.db.database.ref(`/alojamientos/${id}/requests`).push(request);
+  request(id, request,idrequest) {
+    return this.db.database.ref(`/alojamientos/${id}/requests/${idrequest}`).set(request);
   }
   payRent(value) {
     return this.db.database.ref(`/users/${this.userData.uid}/payments/${value.id}`).set(value);
