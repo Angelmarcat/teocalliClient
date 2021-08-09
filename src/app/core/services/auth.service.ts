@@ -1,8 +1,10 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, SnapshotAction } from '@angular/fire/database';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -114,5 +116,28 @@ export class AuthService {
   sendRerpot(id, report) {
     return this.db.database.ref(`/alojamientos/${id}/reports`).push(report);
   }
-
+  public getAccommodationById(id): Observable<any> {
+    return this.db.list('alojamientos', ref => ref.orderByChild('id').equalTo(id))
+      .snapshotChanges().pipe(
+        map(
+          (data: SnapshotAction<any>[]) => {
+            console.log(data[0].payload);
+            const accommodation = data[0].payload.val();
+            accommodation.key = data[0].key;
+            return accommodation;
+          }
+        ));
+  }
+  public getUserById(): Observable<any> {
+    return this.db.list('users', ref => ref.orderByChild('uid').equalTo('qPzwA7VBZlal0ONT7Mqro4jdeAP2'))
+      .snapshotChanges().pipe(
+        map(
+          (data: SnapshotAction<any>[]) => {
+            console.log(data);
+            const accommodation = data[0].payload.val();
+            accommodation.key = data[0].key;
+            return accommodation;
+          }
+        ));
+  }
 }
