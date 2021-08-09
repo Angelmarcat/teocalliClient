@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "teocalli-client",
-    "public": "public",
+    "public": "dist/teocalliClient",
     "ignore": [
       "firebase.json",
       "**/.*",
